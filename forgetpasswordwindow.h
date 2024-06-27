@@ -25,6 +25,7 @@ private slots:
 
 private:
     Ui::ForgetPasswordWindow *ui;
+    QMessageBox msg;
 };
 
 #endif // FORGETPASSWORDWINDOW_H

@@ -1,5 +1,6 @@
 #include "database.h"
 
+
 Database::Database() {
     QDir databasePath;
     QString path = "SeaBattleDB.db";
@@ -27,17 +28,17 @@ Database::Database() {
 Database::~Database() {
     dbConnection.close();
 }
-bool Database::AddUser(QString Username, QString Password, QString Name, QString LastName, QString Email)
+bool Database::AddUser(User user)
 {
     QSqlQuery query;
     query.prepare("INSERT INTO users (username, password, name, lastname, email) VALUES (?, ?, ?, ?, ?)");
-    if(Username.length() > 0 && Password.length()>0 && Name.length()>0 && LastName.length()>0 && Email.length() > 0)
+    if(user.getUsername().length() > 0 && user.getPassword().length()>0 && user.getName().length()>0 && user.getLastName().length()>0 && user.getEmail().length() > 0)
     {
-        query.addBindValue(Username);
-        query.addBindValue(Password);
-        query.addBindValue(Name);
-        query.addBindValue(LastName);
-        query.addBindValue(Email);
+        query.addBindValue(user.getUsername());
+        query.addBindValue(user.getPassword());
+        query.addBindValue(user.getName());
+        query.addBindValue(user.getLastName());
+        query.addBindValue(user.getEmail());
         if (!query.exec()) {
             qDebug() << "Error adding user:" << query.lastError().text();
             return false;
@@ -45,7 +46,7 @@ bool Database::AddUser(QString Username, QString Password, QString Name, QString
     }
     return true;
 }
-bool Database::ValidateUser(QString Username, QString Password)
+User *Database::ValidateUser(QString Username, QString Password)
 {
     QSqlQuery query;
     query.prepare("SELECT * FROM users WHERE username = ? AND password = ?");
@@ -53,9 +54,9 @@ bool Database::ValidateUser(QString Username, QString Password)
     query.addBindValue(Password);
 
     if (!query.exec() || !query.next()) {
-        return false;
+        return nullptr;
     }
-    return true;
+    return (new User(query.value(1).toString(),query.value(2).toString(),query.value(3).toString(),query.value(4).toString(),query.value(5).toString(),query.value(6).toInt(),query.value(7).toInt(),query.value(8).toInt(),query.value(9).toInt(),query.value(10).toInt()));
 }
 QString Database::UserPassword(QString Username,QString Email)
 {
@@ -63,9 +64,9 @@ QString Database::UserPassword(QString Username,QString Email)
     query.prepare("SELECT password FROM users WHERE username = ? AND email = ?");
     query.addBindValue(Username);
     query.addBindValue(Email);
-    QString password="";
-    if(query.next()) {
-        password = query.value(0).toString();
+
+    if (!query.exec() || !query.next()) {
+        return "";
     }
-    return password;
+    return query.value(0).toString();
 }

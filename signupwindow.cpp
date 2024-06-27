@@ -2,6 +2,8 @@
 #include "ui_signupwindow.h"
 #include "mainwindow.h"
 #include "database.h"
+#include "user.h"
+
 SignUpWindow::SignUpWindow(QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::SignUpWindow)
@@ -17,7 +19,7 @@ SignUpWindow::~SignUpWindow()
 void SignUpWindow::on_SignUpButton_clicked()
 {
     Database *db = new Database();
-    db->AddUser(ui->UsernameLE->text(),ui->PasswordLE->text(),ui->NameLE->text(),ui->LastNameLE->text(),ui->EmailLE->text());
+    db->AddUser(User(ui->UsernameLE->text(),ui->PasswordLE->text(),ui->NameLE->text(),ui->LastNameLE->text(),ui->EmailLE->text()));
     this->finished(1);
 }
 

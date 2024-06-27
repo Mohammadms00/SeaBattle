@@ -7,6 +7,7 @@ ForgetPasswordWindow::ForgetPasswordWindow(QWidget *parent)
     , ui(new Ui::ForgetPasswordWindow)
 {
     ui->setupUi(this);
+    connect(&msg,&QDialog::finished,this,&QDialog::finished);
 }
 
 ForgetPasswordWindow::~ForgetPasswordWindow()
@@ -29,9 +30,10 @@ void ForgetPasswordWindow::on_RestorePasswordButton_clicked()
 {
     Database *db = new Database();
     QString password = db->UserPassword(ui->UsernameLE->text(),ui->EmailLE->text());
-    QMessageBox msg;
-    msg.setText("your password is "+password);
+    qDebug()<<password;
+    msg.setText("your password is \""+password +"\"");
     msg.show();
-    finished(1);
+
+
 }
 

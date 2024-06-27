@@ -3,6 +3,7 @@
 #include "mainwindow.h"
 #include "database.h"
 #include "forgetpasswordwindow.h"
+#include "gamemenuwindow.h"
 LogInWindow::LogInWindow(QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::LogInWindow)
@@ -25,7 +26,15 @@ void LogInWindow::on_LogInWindow_finished(int result)
 void LogInWindow::on_LogInButton_clicked()
 {
     Database *db = new Database();
-    db->ValidateUser(ui->UsernameLE->text(),ui->PasswordLE->text());
+    User *user = db->ValidateUser(ui->UsernameLE->text(),ui->PasswordLE->text());
+    if(user)
+    {
+        hide();
+        GameMenuWindow *gmw = new GameMenuWindow();
+        gmw->setUser(user);
+        gmw->show();
+
+    }
 }
 
 

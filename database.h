@@ -7,14 +7,16 @@
 #include <QSqlQuery>
 #include <QSqlError>
 #include <QDebug>
+#include <vector>
+#include "user.h"
 
 class Database
 {
 public:
     Database();
     ~Database();
-    bool AddUser(QString Username, QString Password,QString Name,QString LastName,QString Email);
-    bool ValidateUser(QString Username, QString Password);
+    bool AddUser(User user);
+    User *ValidateUser(QString Username, QString Password);
     QString UserPassword(QString Username,QString Password);
 private:
     QSqlDatabase dbConnection;

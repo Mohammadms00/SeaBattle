@@ -11,20 +11,25 @@ CONFIG += c++17
 SOURCES += \
     database.cpp \
     forgetpasswordwindow.cpp \
+    gamemenuwindow.cpp \
     loginwindow.cpp \
     main.cpp \
     mainwindow.cpp \
-    signupwindow.cpp
+    signupwindow.cpp \
+    user.cpp
 
 HEADERS += \
     database.h \
     forgetpasswordwindow.h \
+    gamemenuwindow.h \
     loginwindow.h \
     mainwindow.h \
-    signupwindow.h
+    signupwindow.h \
+    user.h
 
 FORMS += \
     forgetpasswordwindow.ui \
+    gamemenuwindow.ui \
     loginwindow.ui \
     mainwindow.ui \
     signupwindow.ui
