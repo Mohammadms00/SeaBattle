@@ -1,4 +1,8 @@
-QT       += core gui sql
+QT       += core gui sql widgets
+
+TEMPLATE = app
+TARGET = testLogIn
+INCLUDEPATH += .
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -10,7 +14,9 @@ CONFIG += c++17
 
 SOURCES += \
     database.cpp \
+    draggableship.cpp \
     forgetpasswordwindow.cpp \
+    gameboard.cpp \
     gamemenuwindow.cpp \
     loginwindow.cpp \
     main.cpp \
@@ -20,7 +26,9 @@ SOURCES += \
 
 HEADERS += \
     database.h \
+    draggableship.h \
     forgetpasswordwindow.h \
+    gameboard.h \
     gamemenuwindow.h \
     loginwindow.h \
     mainwindow.h \
