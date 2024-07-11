@@ -13,27 +13,39 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    airdefenseweapon.cpp \
+    atomicbombweapon.cpp \
     database.cpp \
     draggableship.cpp \
     forgetpasswordwindow.cpp \
     gameboard.cpp \
     gamemenuwindow.cpp \
+    linearbombweapon.cpp \
     loginwindow.cpp \
     main.cpp \
     mainwindow.cpp \
+    mineweapon.cpp \
+    observationweapon.cpp \
     signupwindow.cpp \
-    user.cpp
+    user.cpp \
+    weapon.cpp
 
 HEADERS += \
+    airdefenseweapon.h \
+    atomicbombweapon.h \
     database.h \
     draggableship.h \
     forgetpasswordwindow.h \
     gameboard.h \
     gamemenuwindow.h \
+    linearbombweapon.h \
     loginwindow.h \
     mainwindow.h \
+    mineweapon.h \
+    observationweapon.h \
     signupwindow.h \
-    user.h
+    user.h \
+    weapon.h
 
 FORMS += \
     forgetpasswordwindow.ui \
