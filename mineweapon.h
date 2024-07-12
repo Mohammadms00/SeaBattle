@@ -8,6 +8,7 @@
 #include <QBrush>
 #include <QPen>
 #include <cmath>
+<<<<<<< HEAD
 class MineWeapon : public Weapon,public QGraphicsRectItem
 {
 public:
@@ -16,6 +17,14 @@ public:
     void shoot() override;
     QRect getArrayRect();
 
+=======
+class MineWeapon : public Weapon
+{
+public:
+    MineWeapon();
+    void shoot() override;
+    QRect getArrayRect();
+>>>>>>> 9036e3d5a322f2aa44cfb909356e74238e649953
 protected:
     void mouseReleaseEvent(QGraphicsSceneMouseEvent *event) override;
     void mousePressEvent(QGraphicsSceneMouseEvent *event) override;
@@ -27,8 +36,11 @@ private:
     bool canPlaceAt(qreal x, qreal y, qreal width, qreal height);
     bool canPlaceAt(qreal x, qreal y);
     void snapToGrid();
+<<<<<<< HEAD
 
     QPixmap pixmap;
+=======
+>>>>>>> 9036e3d5a322f2aa44cfb909356e74238e649953
 };
 
 #endif // MINEWEAPON_H

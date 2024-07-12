@@ -2,6 +2,7 @@
 
 AirDefenseWeapon::AirDefenseWeapon() {
     this->price = 10;
+<<<<<<< HEAD
     this->maximumcount = 2;
     qDebug()<<QPixmap(":/weapons/images/air_defence.png").rect();
     line1 = new QGraphicsRectItem(0, 0, 400, 40);
@@ -18,12 +19,18 @@ AirDefenseWeapon::AirDefenseWeapon() {
     setFlag(QGraphicsItem::ItemIsMovable, true);
     setFlag(QGraphicsItem::ItemIsSelectable, true);
 
+=======
+    this->maximumcount = 3;
+    qDebug()<<QPixmap(":/weapons/images/air_defence.png").rect();
+    setPixmap(QPixmap(":/weapons/images/air_defence.png"));
+>>>>>>> 9036e3d5a322f2aa44cfb909356e74238e649953
 }
 
 void AirDefenseWeapon::shoot()
 {
     qDebug()<<"use airdefense";
 }
+<<<<<<< HEAD
 
 void AirDefenseWeapon::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 {
@@ -69,3 +76,5 @@ bool AirDefenseWeapon::canPlaceAt(qreal x, qreal y)
     }
     return true;
 }
+=======
+>>>>>>> 9036e3d5a322f2aa44cfb909356e74238e649953

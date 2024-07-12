@@ -1,5 +1,6 @@
 #include "mineweapon.h"
 
+<<<<<<< HEAD
 MineWeapon::MineWeapon() : QGraphicsRectItem(0, 0, 40, 40),originalSize(40, 40) {
     this->price = 5;
     this->maximumcount = 5;
@@ -16,6 +17,16 @@ QRectF MineWeapon::boundingRect() const
 {
     qreal extra = 1;
     return QRectF(rect().x() - extra, rect().y() - extra, rect().width() + 2 * extra, rect().height() + 2 * extra);
+=======
+MineWeapon::MineWeapon() : originalSize(40, 40){
+    this->price = 5;
+    this->maximumcount = 5;
+    qDebug()<<QPixmap(":/weapons/images/mine.png").rect();
+    setPixmap(QPixmap(":/weapons/images/mine.png"));
+    setFlag(QGraphicsItem::ItemIsMovable, true);
+    setFlag(QGraphicsItem::ItemIsSelectable, true);
+    setBrush(QBrush(Qt::red));
+>>>>>>> 9036e3d5a322f2aa44cfb909356e74238e649953
 }
 
 void MineWeapon::shoot()

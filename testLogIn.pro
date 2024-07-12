@@ -15,8 +15,11 @@ CONFIG += c++17
 SOURCES += \
     airdefenseweapon.cpp \
     atomicbombweapon.cpp \
+<<<<<<< HEAD
     buyweaponwidget.cpp \
     clickablegameboard.cpp \
+=======
+>>>>>>> 9036e3d5a322f2aa44cfb909356e74238e649953
     database.cpp \
     draggableship.cpp \
     forgetpasswordwindow.cpp \
@@ -28,9 +31,12 @@ SOURCES += \
     mainwindow.cpp \
     mineweapon.cpp \
     observationweapon.cpp \
+<<<<<<< HEAD
     ondeviceplay.cpp \
     placeshipswidget.cpp \
     playwidget.cpp \
+=======
+>>>>>>> 9036e3d5a322f2aa44cfb909356e74238e649953
     signupwindow.cpp \
     user.cpp \
     weapon.cpp
@@ -38,8 +44,11 @@ SOURCES += \
 HEADERS += \
     airdefenseweapon.h \
     atomicbombweapon.h \
+<<<<<<< HEAD
     buyweaponwidget.h \
     clickablegameboard.h \
+=======
+>>>>>>> 9036e3d5a322f2aa44cfb909356e74238e649953
     database.h \
     draggableship.h \
     forgetpasswordwindow.h \
@@ -50,9 +59,12 @@ HEADERS += \
     mainwindow.h \
     mineweapon.h \
     observationweapon.h \
+<<<<<<< HEAD
     ondeviceplay.h \
     placeshipswidget.h \
     playwidget.h \
+=======
+>>>>>>> 9036e3d5a322f2aa44cfb909356e74238e649953
     signupwindow.h \
     user.h \
     weapon.h
