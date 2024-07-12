@@ -25,6 +25,8 @@ private slots:
 
     void on_pushButton_clicked();
 
+    void on_OnDeviceButton_clicked();
+
 private:
     Ui::GameMenuWindow *ui;
     User *user;

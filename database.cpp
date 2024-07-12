@@ -58,6 +58,18 @@ User *Database::ValidateUser(QString Username, QString Password)
     }
     return (new User(query.value(1).toString(),query.value(2).toString(),query.value(3).toString(),query.value(4).toString(),query.value(5).toString(),query.value(6).toInt(),query.value(7).toInt(),query.value(8).toInt(),query.value(9).toInt(),query.value(10).toInt()));
 }
+
+bool Database::UpdateUser(User user)
+{
+    QSqlQuery query;
+    query.prepare("DELETE FROM users WHERE username = ?");
+    query.addBindValue(user.getUsername());
+    if (!query.exec()) {
+        qDebug() << "Error adding user:" << query.lastError().text();
+        return false;
+    }
+    AddUser(user);
+}
 QString Database::UserPassword(QString Username,QString Email)
 {
     QSqlQuery query;

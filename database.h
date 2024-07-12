@@ -17,6 +17,7 @@ public:
     ~Database();
     bool AddUser(User user);
     User *ValidateUser(QString Username, QString Password);
+    bool UpdateUser(User user);
     QString UserPassword(QString Username,QString Password);
 private:
     QSqlDatabase dbConnection;

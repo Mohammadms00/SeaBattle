@@ -2,15 +2,16 @@
 #define DRAGGABLESHIP_H
 
 #include <QGraphicsRectItem>
-#include <QGraphicsSceneMouseEvent>
 #include <QSizeF>
-#include <QGraphicsScene>
+#include <QPointF>
 
 class DraggableShip : public QGraphicsRectItem {
 public:
     DraggableShip(int width, int height);
-    QRectF boundingRect() const override;
 
+    QRectF boundingRect() const override;
+    QRect getArrayRect();
+    void setDragablity(bool dragbility);
 protected:
     void mouseReleaseEvent(QGraphicsSceneMouseEvent *event) override;
     void mousePressEvent(QGraphicsSceneMouseEvent *event) override;
@@ -18,6 +19,7 @@ protected:
 private:
     QPointF originalPos;
     QSizeF originalSize;
+    QRect arrayrect;
     bool isVertical;
 
     void snapToGrid();

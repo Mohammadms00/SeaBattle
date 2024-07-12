@@ -1,0 +1,59 @@
+QT       += core gui widgets
+
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+
+TEMPLATE = app
+TARGET = weapon
+INCLUDEPATH += .
+
+CONFIG += c++17
+
+# You can make your code fail to compile if it uses deprecated APIs.
+# In order to do so, uncomment the following line.
+#DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
+
+SOURCES += \
+    airdefenseweapon.cpp \
+    atomicbombweapon.cpp \
+    buyweaponwidget.cpp \
+    clickablegameboard.cpp \
+    draggableship.cpp \
+    gameboard.cpp \
+    linearbombweapon.cpp \
+    main.cpp \
+    mainwindow.cpp \
+    mineweapon.cpp \
+    observationweapon.cpp \
+    ondeviceplay.cpp \
+    placeshipswidget.cpp \
+    playwidget.cpp \
+    weapon.cpp
+
+HEADERS += \
+    airdefenseweapon.h \
+    atomicbombweapon.h \
+    buyweaponwidget.h \
+    clickablegameboard.h \
+    draggableship.h \
+    gameboard.h \
+    linearbombweapon.h \
+    mainwindow.h \
+    mineweapon.h \
+    observationweapon.h \
+    ondeviceplay.h \
+    placeshipswidget.h \
+    playwidget.h \
+    weapon.h
+
+FORMS += \
+    buyweaponwidget.ui \
+    placeshipswidget.ui \
+    playwidget.ui
+
+# Default rules for deployment.
+qnx: target.path = /tmp/$${TARGET}/bin
+else: unix:!android: target.path = /opt/$${TARGET}/bin
+!isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    Resources.qrc

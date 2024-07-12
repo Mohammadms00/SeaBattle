@@ -1,6 +1,7 @@
 #include "gamemenuwindow.h"
 #include "ui_gamemenuwindow.h"
 #include "mainwindow.h"
+#include "ondeviceplay.h"
 GameMenuWindow::GameMenuWindow(QWidget *parent)
     : QDialog(parent)
     , ui(new Ui::GameMenuWindow)
@@ -40,5 +41,14 @@ void GameMenuWindow::on_pushButton_clicked()
     QTextStream(&str) << "Username: " << user->getUsername() << "\nPassword: " << user->getPassword() << "\nName: " << user->getName() << "\nLastName: " << user->getLastName() << "\nEmail: " << user->getEmail();
     msg.setText(str);
     msg.show();
+}
+
+
+void GameMenuWindow::on_OnDeviceButton_clicked()
+{
+    auto *odp = new OnDevicePlay();
+    odp->setUser(user);
+    odp->show();
+
 }
 

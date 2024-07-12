@@ -1,4 +1,6 @@
 #include "draggableship.h"
+#include <QGraphicsScene>
+#include <QGraphicsSceneMouseEvent>
 #include <QBrush>
 #include <QPen>
 #include <cmath>
@@ -6,9 +8,20 @@
 DraggableShip::DraggableShip(int width, int height)
     : QGraphicsRectItem(0, 0, width, height), originalSize(width, height), isVertical(false) {
     setBrush(QBrush(Qt::blue));
-    setFlag(QGraphicsItem::ItemIsMovable, true);
-    setFlag(QGraphicsItem::ItemIsSelectable, true);
+    setDragablity(true);
 }
+
+QRect DraggableShip::getArrayRect()
+{
+    return arrayrect;
+}
+
+void DraggableShip::setDragablity(bool dragbility)
+{
+    setFlag(QGraphicsItem::ItemIsMovable, dragbility);
+    setFlag(QGraphicsItem::ItemIsSelectable, dragbility);
+}
+
 
 QRectF DraggableShip::boundingRect() const {
     qreal extra = 1;
@@ -40,6 +53,11 @@ void DraggableShip::snapToGrid() {
 
     if (canPlaceAt(x, y)) {
         setPos(x, y);
+
+        arrayrect.setX(x / 40);
+        arrayrect.setY(y / 40);
+        arrayrect.setWidth(rect().width()/40);
+        arrayrect.setHeight(rect().height()/40);
     } else {
         setPos(originalPos);
     }

@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/weapons">
+        <file>images/air_defense.png</file>
+        <file>images/atomic_bomb.png</file>
+        <file>images/linear_bomb.png</file>
+        <file>images/mine.png</file>
+        <file>images/observation.png</file>
+        <file>images/X.png</file>
+    </qresource>
+</RCC>
